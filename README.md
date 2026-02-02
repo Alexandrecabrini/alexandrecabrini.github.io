@@ -43,6 +43,7 @@ Campanhas no Meta Ads focadas em geração de leads qualificados.
 - n8n
 - Meta Ads
 - Google Sheets
+- Excel
 - APIs e Webhooks
 
 ---
