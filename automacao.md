@@ -16,12 +16,12 @@ o que gerava perda de informações e retrabalho no atendimento.
 
 **Solução**  
 Criação de automação utilizando n8n para captar os leads automaticamente,
-padronizar os dados e armazenar tudo em uma planilha centralizada.
+padronizar os dados para integração via CRM Facilita
 
 **Ferramentas**  
 - n8n  
 - Meta Ads  
-- Google Sheets  
+- API Whastapp  
 
 **Resultado / Impacto**  
 - Centralização dos leads  
