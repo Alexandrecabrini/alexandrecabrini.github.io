@@ -1,8 +1,8 @@
 # Alexandre Cabrini
 
-## Analista de Dados Pleno | Automação | Tráfego Pago
+## Analista de Dados Junior | Automação | Tráfego Pago
 
-Sou Analista de Dados Pleno com foco em organização, automação e análise de dados para negócios.
+Sou Analista de Dados Junior com foco em organização, automação e análise de dados para negócios.
 Atuo com Power BI, Excel, SQL, n8n e Meta Ads.
 
 Tenho experiência em transformar dados desorganizados em informações claras para tomada de decisão.
@@ -28,4 +28,4 @@ Tenho experiência em transformar dados desorganizados em informações claras p
 
 ## 📞 Contato
 - GitHub: https://github.com/alexandrecabrini  
-- LinkedIn: (vamos adicionar depois)
+- LinkedIn: https://www.linkedin.com/in/alexandrecabrini/
