@@ -49,5 +49,5 @@ Campanhas no Meta Ads focadas em geração de leads qualificados.
 ---
 
 📫 **Contato**
-- LinkedIn: (seu link)
-- GitHub: (esse perfil)
+- LinkedIn: https://www.linkedin.com/in/alexandrecabrini/
+- GitHub: https://github.com/alexandrecabrini
