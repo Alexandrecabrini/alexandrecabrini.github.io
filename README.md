@@ -1,2 +1,31 @@
-# alexandrecabrini.github.io
-Portfólio profissional - Alexandre Cabrini
+# Alexandre Cabrini
+
+## Analista de Dados Pleno | Automação | Tráfego Pago
+
+Sou Analista de Dados Pleno com foco em organização, automação e análise de dados para negócios.
+Atuo com Power BI, Excel, SQL, n8n e Meta Ads.
+
+Tenho experiência em transformar dados desorganizados em informações claras para tomada de decisão.
+
+---
+
+## 📂 Portfólio
+
+- 📊 [Projetos de Dados](projetos.md)
+- ⚙️ [Automações](automacao.md)
+- 📈 [Tráfego Pago](trafego.md)
+
+---
+
+## 🛠️ Tecnologias
+- Power BI
+- Excel
+- SQL
+- n8n
+- Meta Ads
+
+---
+
+## 📞 Contato
+- GitHub: https://github.com/alexandrecabrini  
+- LinkedIn: (vamos adicionar depois)
