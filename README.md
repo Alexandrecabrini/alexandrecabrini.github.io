@@ -23,6 +23,7 @@ Tenho experiência em transformar dados desorganizados em informações claras p
 - SQL
 - n8n
 - Meta Ads
+- Phython
 
 ---
 
