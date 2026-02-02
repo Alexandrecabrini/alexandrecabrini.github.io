@@ -24,6 +24,7 @@ Tenho experiência em transformar dados desorganizados em informações claras p
 - n8n
 - Meta Ads
 - Phython
+- API
 
 ---
 
