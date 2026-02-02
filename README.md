@@ -1,33 +1,52 @@
 # Alexandre Cabrini
 
-## Analista de Dados Junior | Automação | Tráfego Pago
+Analista de Dados Júnior | Automação de Processos | Tráfego Pago | Python
 
-Sou Analista de Dados Junior com foco em organização, automação e análise de dados para negócios.
-Atuo com Power BI, Excel, SQL, n8n e Meta Ads.
+Sou analista de dados e automação, com experiência prática em projetos reais
+para imobiliárias, transportadoras e pequenos negócios.
 
-Tenho experiência em transformar dados desorganizados em informações claras para tomada de decisão.
+Tenho foco em:
+- Automação de processos (n8n, WhatsApp, planilhas)
+- Análise de dados e dashboards
+- Tráfego pago com foco em geração de leads
+- Integração entre sistemas e dados
 
 ---
 
-## 📂 Portfólio
+## 📊 Projetos em Destaque
 
-- 📊 [Projetos de Dados](projetos.md)
-- ⚙️ [Automações](automacao.md)
-- 📈 [Tráfego Pago](trafego.md)
+### 🚚 Dashboard Operacional para Transportadora
+Dashboard em Python para análise operacional e tomada de decisão.
+
+➡️ [Ver detalhes do projeto](dashboard.md)
+
+---
+
+### 🤖 Automações de Processos
+Automatizações para captação, organização e qualificação de leads.
+
+➡️ [Ver projetos de automação](automacao.md)
+
+---
+
+### 📈 Tráfego Pago
+Campanhas no Meta Ads focadas em geração de leads qualificados.
+
+➡️ [Ver projetos de tráfego pago](trafego.md)
 
 ---
 
 ## 🛠️ Tecnologias
+
+- Python (Pandas, Streamlit, Plotly)
 - Power BI
-- Excel
-- SQL
 - n8n
 - Meta Ads
-- Phython
-- API
+- Google Sheets
+- APIs e Webhooks
 
 ---
 
-## 📞 Contato
-- GitHub: https://github.com/alexandrecabrini  
-- LinkedIn: https://www.linkedin.com/in/alexandrecabrini/
+📫 **Contato**
+- LinkedIn: (seu link)
+- GitHub: (esse perfil)
