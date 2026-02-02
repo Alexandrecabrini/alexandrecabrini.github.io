@@ -1,6 +1,6 @@
 # Alexandre Cabrini
 
-Analista de Dados Júnior | Automação de Processos | Tráfego Pago | Python
+Analista de Dados Pleno | Automação de Processos | Tráfego Pago | Python
 
 Sou analista de dados e automação, com experiência prática em projetos reais
 para imobiliárias, transportadoras e pequenos negócios.
