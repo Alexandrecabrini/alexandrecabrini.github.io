@@ -1,6 +1,6 @@
 # 🤖 Projetos de Automação
 
-## Automação de Captação, Tratamento e Distribuição de Leads (Imobiliária)
+## Automação de Captação, Tratamento e Distribuição de Leads (Imobiliária) - CRM Facilita e Robust
 
 **Contexto**  
 Imobiliária com múltiplas campanhas no Meta Ads direcionando leads
@@ -67,3 +67,4 @@ corretores responsáveis pelo atendimento.
 - Distribuição automática e correta para os corretores  
 - Redução significativa de retrabalho manual  
 - Processo comercial mais rápido e eficiente
+- 
