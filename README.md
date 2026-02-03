@@ -44,7 +44,7 @@ com integração de rastreamento e automações no funil.
 - **Google Sheets**
 - **Python (Pandas, Streamlit, Plotly)**
 - **n8n, Webhooks, APIs**
-- **CRM Facilita**
+- **CRM Facilita e Robust**
 - **Meta Ads / WhatsApp**
 
 ---
