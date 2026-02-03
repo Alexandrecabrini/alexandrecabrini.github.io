@@ -1,70 +1,106 @@
 # 🤖 Projetos de Automação
 
-## Automação de Captação, Tratamento e Distribuição de Leads (Imobiliária) - CRM Facilita e Robust
+Nesta seção estão projetos focados em **automação de processos operacionais e de negócio**,
+utilizando integrações via API, scripts em Python e ferramentas low-code.
 
-**Contexto**  
-Imobiliária com múltiplas campanhas no Meta Ads direcionando leads
-para atendimento via WhatsApp, utilizando CRM para gestão comercial.
-
-**Fluxo de Entrada dos Leads**  
-Campanhas no Meta Ads direcionavam os leads para o WhatsApp da empresa.
-A captura dessas informações era realizada por meio da Evolution API,
-responsável por coletar os dados das conversas.
-
-Esses dados eram enviados via webhook para o n8n, onde todo o
-processamento e tratamento das informações acontecia.
+Os projetos abaixo demonstram como dados são capturados, tratados e organizados
+para reduzir trabalho manual, erros operacionais e aumentar eficiência.
 
 ---
 
-**Problema**  
-- Leads chegavam sem padronização de dados  
-- Dificuldade em rastrear a origem das campanhas  
-- Necessidade de organizar os leads em filas corretas dentro do CRM  
-- Alto risco de erro manual no processo de distribuição para corretores  
+## 🔹 Automação de Captação e Qualificação de Leads (Imobiliária)
+
+### 📌 Contexto
+A imobiliária realizava campanhas no Meta Ads direcionadas para WhatsApp,
+porém os leads chegavam de forma desorganizada, sem rastreio de campanha
+e sem distribuição automática para os corretores.
 
 ---
 
-**Solução**  
-Criação de um fluxo automatizado no n8n para receber os dados via webhook
-da Evolution API, tratar e padronizar as informações conforme a
-documentação do CRM Facilita.
-
-Dentro do fluxo, também foi implementado o rastreamento das campanhas
-por meio de mensagens automáticas recebidas de cada empreendimento,
-permitindo identificar corretamente a origem do lead.
-
-Após o tratamento, os dados eram enviados ao CRM Facilita, onde
-configurações de filas direcionavam automaticamente os leads para os
-corretores responsáveis pelo atendimento.
+### 🎯 Problema
+- Leads sem identificação de origem
+- Falta de rastreio por empreendimento
+- Distribuição manual para corretores
+- Baixa eficiência no atendimento
 
 ---
 
-**Ferramentas e Tecnologias**  
+### ✅ Solução
+Desenvolvimento de um fluxo automatizado integrando:
+
+- Campanhas Meta Ads → WhatsApp  
+- Captura de mensagens via **Evolution API**
+- Recebimento dos dados via **Webhook no n8n**
+- Tratamento e padronização conforme documentação do **CRM Facilita**
+- Criação de filas automáticas por empreendimento
+- Distribuição dos leads para os corretores dentro do CRM
+
+O rastreio das campanhas era feito através de **mensagens automáticas configuradas nos anúncios**,
+permitindo identificar origem, empreendimento e campanha.
+
+---
+
+### 🛠️ Tecnologias Utilizadas
+- n8n  
+- Webhooks  
+- Evolution API  
+- CRM Facilita  
 - Meta Ads  
 - WhatsApp  
-- Evolution API  
-- Webhook  
-- n8n  
-- CRM Facilita  
 
 ---
 
-**Fluxo da Automação (Resumo)**  
-1. Lead entra via campanha no Meta Ads  
-2. Contato iniciado no WhatsApp  
-3. Captura dos dados via Evolution API  
-4. Envio dos dados via webhook para o n8n  
-5. Tratamento, padronização e rastreamento de campanha  
-6. Envio dos dados para o CRM Facilita  
-7. Distribuição automática em filas  
-8. Atendimento pelo corretor  
+### 📊 Impacto
+- Leads organizados automaticamente
+- Atendimento mais rápido
+- Rastreio completo das campanhas
+- Redução de processos manuais
 
 ---
 
-**Resultado / Impacto**  
-- Leads organizados automaticamente no CRM  
-- Rastreabilidade clara da origem das campanhas  
-- Distribuição automática e correta para os corretores  
-- Redução significativa de retrabalho manual  
-- Processo comercial mais rápido e eficiente
-- 
+## 🔹 Automação de Relatórios Operacionais em Excel com Python (Projeto RORI)
+
+### 📌 Contexto
+Este foi meu **primeiro projeto real em Python**, desenvolvido para automatizar
+a geração de relatórios operacionais a partir de dados extraídos de arquivos `.txt`.
+
+O processo antes da automação era totalmente manual, sujeito a erros
+e demandava tempo excessivo da equipe operacional.
+
+---
+
+### 🎯 Problema
+- Extração manual de dados
+- Preenchimento repetitivo em planilhas Excel
+- Alto risco de erro humano
+- Falta de padronização por filial
+
+---
+
+### ✅ Solução
+Criação de um **script em Python** que:
+
+- Extrai dados de múltiplos arquivos `.txt`
+- Trata e organiza as informações
+- Preenche automaticamente uma planilha Excel existente
+- Padroniza dados por filial
+- Realiza validações de data e observações
+- Remove arquivos temporários após a execução
+
+---
+
+### 🛠️ Tecnologias Utilizadas
+- Python  
+- OpenPyXL  
+- Manipulação de arquivos  
+- Automação de processos  
+
+---
+
+### 📊 Impacto
+- Redução significativa do trabalho manual
+- Padronização dos relatórios
+- Menor taxa de erro
+- Ganho de produtividade operacional
+
+📌 *Projeto com dados internos adaptados para fins de portfólio.*
