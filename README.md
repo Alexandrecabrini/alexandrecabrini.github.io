@@ -22,7 +22,7 @@ Dashboard web desenvolvido em **Python e Streamlit**, integrado a banco de dados
 O projeto centraliza indicadores operacionais e possui arquitetura preparada
 para controle de acesso por usuários e expansão futura.
 
-👉 [Ver detalhes do projeto](dashboards.md)
+👉 [Ver detalhes do projeto](dashboard.md)
 
 ---
 
