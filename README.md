@@ -63,5 +63,7 @@ integradas a automações para rastreamento e qualificação dos leads.
 ---
 
 ## 📫 Contato
+- 📧 Email: **alexandre.cabrini@gmail.com** 
 - 💼 LinkedIn: https://www.linkedin.com/in/alexandrecabrini  
-- 💻 GitHub: https://github.com/Alexandrecabrini  
+- 💻 GitHub: https://github.com/Alexandrecabrini
+- 
