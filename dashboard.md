@@ -1,77 +1,87 @@
-# 🚚 Dashboard Operacional para Transportadora
+# 🚚 Dashboard Logístico – Transportadora (SSW)
 
 ## Visão Geral
-Dashboard web desenvolvido em Python para análise operacional de uma transportadora.
-O projeto tem como objetivo centralizar informações operacionais e facilitar
-a tomada de decisão baseada em dados.
+Dashboard web desenvolvido em **Python e Streamlit** para análise operacional e financeira
+de uma transportadora, com dados integrados diretamente a um banco de dados
+**Supabase (PostgreSQL)**.
 
-Atualmente, o dashboard consome dados a partir de planilhas, sendo um projeto
-recente e em evolução contínua.
+O projeto tem como objetivo centralizar informações logísticas e financeiras,
+facilitando a tomada de decisão baseada em dados confiáveis e atualizados.
 
 ---
 
 ## Contexto
-A transportadora possui grande volume de dados operacionais relacionados a
-fretes, pesos, valores, prazos e desempenho por período.
-Essas informações estavam dispersas em planilhas, dificultando análises rápidas
-e consistentes.
+A transportadora possui grande volume de dados relacionados a:
+- Fretes
+- Pesos transportados
+- Faturamento
+- Clientes
+- Performance por unidade e período
+
+Antes do dashboard, essas informações não estavam centralizadas,
+dificultando análises rápidas e consistentes do negócio.
 
 ---
 
 ## Problema
-- Dificuldade para visualizar indicadores operacionais
-- Análises manuais e demoradas
-- Falta de padronização das informações
-- Pouca visibilidade para apoio à tomada de decisão
+- Falta de visão consolidada dos indicadores logísticos
+- Dificuldade para acompanhar faturamento e performance
+- Análises manuais e pouco escaláveis
+- Baixa visibilidade operacional para gestão
 
 ---
 
 ## Solução
-Desenvolvimento de um dashboard interativo utilizando Python e Streamlit,
-permitindo a consolidação, tratamento e visualização dos dados operacionais
-em um único ambiente.
+Desenvolvimento de um **dashboard interativo** que consome dados diretamente
+do banco **Supabase (PostgreSQL)**, permitindo tratamento, análise e visualização
+em tempo real dos dados operacionais.
 
-O projeto foi pensado desde o início para ser escalável e futuramente
-disponibilizado como aplicação web com controle de acesso por usuário.
+A aplicação foi projetada desde o início para funcionamento em ambiente web,
+com arquitetura preparada para controle de acesso por usuários.
 
 ---
 
 ## Tecnologias Utilizadas
 - Python  
-- Pandas  
 - Streamlit  
+- Pandas  
+- SQLAlchemy  
+- Supabase (**PostgreSQL**)  
 - Plotly  
-- Excel / Planilhas  
 
 ---
 
 ## Funcionalidades Atuais
-- Leitura de dados a partir de planilhas
-- Tratamento e organização dos dados
-- Visualizações interativas com gráficos
-- Análise por período
+- KPIs de **Faturamento**, **Ticket Médio** e **Peso transportado**
+- Ranking dos **Top 20 clientes por faturamento**
+- Evolução **diária da receita**
+- Filtros dinâmicos por **unidade operacional**
+- Visualizações interativas e responsivas
 
 ---
 
 ## Arquitetura Atual (Simplificada)
-1. Upload ou leitura de planilhas
-2. Tratamento dos dados com Pandas
-3. Geração de gráficos com Plotly
-4. Exibição interativa via Streamlit
+1. Dados armazenados no **Supabase (PostgreSQL)**
+2. Consulta dos dados via **SQLAlchemy**
+3. Tratamento e agregações com **Pandas**
+4. Visualizações interativas com **Plotly**
+5. Interface web desenvolvida em **Streamlit**
 
 ---
 
 ## Roadmap (Próximos Passos)
-- Implementação de login e senha
-- Controle de acesso por usuários da empresa
-- Deploy como aplicação web
-- Integração com banco de dados
-- Automatização da atualização dos dados
+- Implementação de autenticação de usuários
+- Controle de acesso por perfil
+- Otimização de consultas no banco
+- Expansão dos indicadores logísticos e financeiros
+- Deploy definitivo em ambiente web
 
 ---
 
 ## Status do Projeto
-🟡 **Em desenvolvimento**
+🟢 **Em desenvolvimento ativo**
 
-Este projeto está em constante evolução e novas funcionalidades
-estão sendo adicionadas conforme a necessidade do negócio.
+Projeto em evolução contínua, com melhorias sendo implementadas
+conforme as necessidades operacionais da transportadora.
+
+📌 *Projeto com dados internos adaptados para fins de portfólio.*
