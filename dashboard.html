@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Dashboard Logístico SSW - Projeto de Alexandre Cabrini">
+    <title>Dashboard Logístico SSW | Alexandre Cabrini</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #3b82f6;
+            --primary-dark: #2563eb;
+            --secondary: #06b6d4;
+            --dark: #0f172a;
+            --dark-light: #1e293b;
+            --dark-card: #1a1f36;
+            --gray: #94a3b8;
+            --gray-light: #cbd5e1;
+            --accent: #8b5cf6;
+            --success: #10b981;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--gray-light);
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* Navigation */
+        .nav {
+            margin-bottom: 2rem;
+        }
+
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.8rem 1.5rem;
+            background: var(--dark-card);
+            color: var(--gray-light);
+            text-decoration: none;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .back-btn:hover {
+            background: var(--dark-light);
+            color: white;
+            transform: translateX(-5px);
+        }
+
+        /* Header */
+        .project-header {
+            background: var(--dark-card);
+            padding: 3rem 2rem;
+            border-radius: 20px;
+            margin-bottom: 3rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        }
+
+        .project-title {
+            font-size: 3rem;
+            color: white;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .project-title i {
+            color: var(--primary);
+        }
+
+        .project-subtitle {
+            font-size: 1.3rem;
+            color: var(--gray-light);
+            margin-bottom: 2rem;
+        }
+
+        .tech-tags {
+            display: flex;
+            gap: 0.8rem;
+            flex-wrap: wrap;
+        }
+
+        .tech-tag {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 0.5rem 1.2rem;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        /* Section */
+        .section {
+            background: var(--dark-card);
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+        }
+
+        .section-title {
+            font-size: 2rem;
+            color: white;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 3px solid var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .section-title i {
+            color: var(--primary);
+        }
+
+        .section p {
+            color: var(--gray-light);
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        /* Features Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .feature-card {
+            background: var(--dark-light);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.3);
+            border-color: var(--primary);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .feature-title {
+            font-size: 1.3rem;
+            color: white;
+            margin-bottom: 0.8rem;
+            font-weight: 600;
+        }
+
+        .feature-desc {
+            color: var(--gray-light);
+            line-height: 1.6;
+        }
+
+        /* Stats */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            color: white;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        /* Tech Stack */
+        .tech-stack-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .tech-item {
+            background: var(--dark-light);
+            padding: 1.2rem;
+            border-radius: 12px;
+            text-align: center;
+            font-weight: 600;
+            color: var(--gray-light);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .tech-item:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(59, 130, 246, 0.4);
+        }
+
+        /* List */
+        .custom-list {
+            list-style: none;
+            margin-top: 1.5rem;
+        }
+
+        .custom-list li {
+            color: var(--gray-light);
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            padding-left: 2rem;
+            position: relative;
+        }
+
+        .custom-list li::before {
+            content: "▸";
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-size: 1.5rem;
+        }
+
+        /* Architecture Diagram */
+        .architecture {
+            background: var(--dark-light);
+            padding: 2rem;
+            border-radius: 15px;
+            margin-top: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .flow-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            color: var(--gray-light);
+            font-size: 1.1rem;
+        }
+
+        .flow-icon {
+            color: var(--primary);
+            font-size: 1.5rem;
+        }
+
+        .flow-arrow {
+            color: var(--secondary);
+            font-size: 1.2rem;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: var(--gray);
+            font-size: 0.95rem;
+            margin-top: 3rem;
+        }
+
+        @media (max-width: 768px) {
+            .project-title {
+                font-size: 2rem;
+            }
+
+            .section {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav class="nav">
+            <a href="index.html" class="back-btn">
+                <i class="fas fa-arrow-left"></i> Voltar ao Portfólio
+            </a>
+        </nav>
+
+        <header class="project-header">
+            <h1 class="project-title">
+                <i class="fas fa-truck"></i>
+                Dashboard Logístico SSW
+            </h1>
+            <p class="project-subtitle">
+                Plataforma web completa para análise de dados logísticos e financeiros em tempo real
+            </p>
+            <div class="tech-tags">
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">Streamlit</span>
+                <span class="tech-tag">PostgreSQL</span>
+                <span class="tech-tag">Supabase</span>
+                <span class="tech-tag">Pandas</span>
+                <span class="tech-tag">Plotly</span>
+            </div>
+        </header>
+
+        <div class="section">
+            <h2 class="section-title">
+                <i class="fas fa-info-circle"></i>
+                Visão Geral do Projeto
+            </h2>
+            <p>
+                Dashboard web desenvolvido em <strong>Python e Streamlit</strong> para análise operacional e 
+                financeira de uma transportadora, com dados integrados diretamente a um banco de dados 
+                <strong>Supabase (PostgreSQL)</strong>.
+            </p>
+            <p>
+                O projeto tem como objetivo centralizar informações logísticas e financeiras, facilitando 
+                a tomada de decisão baseada em dados confiáveis e atualizados.
+            </p>
+            
+            <h3 style="color: white; margin-top: 2rem; margin-bottom: 1rem; font-size: 1.5rem;">Contexto</h3>
+            <p>A transportadora possui grande volume de dados relacionados a:</p>
+            <ul class="custom-list">
+                <li>Fretes</li>
+                <li>Pesos transportados</li>
+                <li>Faturamento</li>
+                <li>Clientes</li>
+                <li>Performance por unidade e período</li>
+            </ul>
+            <p>
+                Antes do dashboard, essas informações não estavam centralizadas, dificultando análises 
+                rápidas e consistentes do negócio.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">
+                <i class="fas fa-exclamation-triangle"></i>
+                Problema
+            </h2>
+            <ul class="custom-list">
+                <li>Falta de visão consolidada dos indicadores logísticos</li>
+                <li>Dificuldade para acompanhar faturamento e performance</li>
+                <li>Análises manuais e pouco escaláveis</li>
+                <li>Baixa visibilidade operacional para gestão</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">
+                <i class="fas fa-lightbulb"></i>
+                Solução
+            </h2>
+            <p>
+                Desenvolvimento de um dashboard interativo que consome dados diretamente do banco 
+                <strong>Supabase (PostgreSQL)</strong>, permitindo tratamento, análise e visualização 
+                em tempo real dos dados operacionais.
+            </p>
+            <p>
+                A aplicação foi projetada desde o início para funcionamento em ambiente web, com 
+                arquitetura preparada para controle de acesso por usuários.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">
+                <i class="fas fa-star"></i>
+                Funcionalidades Atuais
+            </h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-dollar-sign"></i>
+                    </div>
+                    <h3 class="feature-title">KPIs Principais</h3>
+                    <p class="feature-desc">
+                        Faturamento total, Ticket Médio e Peso transportado exibidos de forma clara e objetiva
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <h3 class="feature-title">Ranking Top 20 Clientes</h3>
+                    <p class="feature-desc">
+                        Visualização dos principais clientes por faturamento para análise estratégica
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3 class="feature-title">Evolução Diária da Receita</h3>
+                    <p class="feature-desc">
+                        Acompanhamento da performance financeira ao longo do tempo com gráficos interativos
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-filter"></i>
+                    </div>
+                    <h3 class="feature-title">Filtros Dinâmicos</h3>
+                    <p class="feature-desc">
+                        Filtros por unidade operacional para análises específicas e segmentadas
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-bar"></i>
+                    </div>
+                    <h3 class="feature-title">Visualizações Interativas</h3>
+                    <p class="feature-desc">
+                        Gráficos responsivos e interativos criados com Plotly para melhor experiência do usuário
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h3 class="feature-title">Integração Banco de Dados</h3>
+                    <p class="feature-desc">
+                        Conexão direta com Supabase via SQLAlchemy para dados sempre atualizados
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">
+                <i class="fas fa-road"></i>
+                Roadmap (Próximos Passos)
+            </h2>
+            <ul class="custom-list">
+                <li>Implementação de autenticação de usuários</li>
+                <li>Controle de acesso por perfil</li>
+                <li>Otimização de consultas no banco</li>
+                <li>Expansão dos indicadores logísticos e financeiros</li>
+                <li>Deploy definitivo em ambiente web</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">
+                <i class="fas fa-info-circle"></i>
+                Status do Projeto
+            </h2>
+            <p style="font-size: 1.3rem; color: var(--success); font-weight: 600; margin-bottom: 1rem;">
+                <i class="fas fa-circle" style="font-size: 0.6rem; margin-right: 0.5rem;"></i> Em desenvolvimento ativo
+            </p>
+            <p>
+                Projeto em evolução contínua, com melhorias sendo implementadas conforme as 
+                necessidades operacionais da transportadora.
+            </p>
+            <p style="margin-top: 1.5rem; font-style: italic; color: var(--gray);">
+                <i class="fas fa-info-circle"></i> Projeto com dados internos adaptados para fins de portfólio.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">
+                <i class="fas fa-code"></i>
+                Arquitetura Atual (Simplificada)
+            </h2>
+            <div class="architecture">
+                <div class="flow-item">
+                    <i class="fas fa-database flow-icon"></i>
+                    <span><strong>Supabase (PostgreSQL)</strong></span>
+                    <i class="fas fa-arrow-right flow-arrow"></i>
+                    <span>Dados armazenados no banco</span>
+                </div>
+                <div class="flow-item">
+                    <i class="fas fa-plug flow-icon"></i>
+                    <span><strong>SQLAlchemy</strong></span>
+                    <i class="fas fa-arrow-right flow-arrow"></i>
+                    <span>Consulta dos dados via ORM</span>
+                </div>
+                <div class="flow-item">
+                    <i class="fas fa-table flow-icon"></i>
+                    <span><strong>Pandas</strong></span>
+                    <i class="fas fa-arrow-right flow-arrow"></i>
+                    <span>Tratamento e agregações</span>
+                </div>
+                <div class="flow-item">
+                    <i class="fas fa-chart-bar flow-icon"></i>
+                    <span><strong>Plotly</strong></span>
+                    <i class="fas fa-arrow-right flow-arrow"></i>
+                    <span>Visualizações interativas</span>
+                </div>
+                <div class="flow-item">
+                    <i class="fas fa-desktop flow-icon"></i>
+                    <span><strong>Streamlit</strong></span>
+                    <i class="fas fa-arrow-right flow-arrow"></i>
+                    <span>Interface web desenvolvida</span>
+                </div>
+            </div>
+
+            <h3 style="color: white; margin-top: 2rem; margin-bottom: 1rem; font-size: 1.5rem;">
+                Tecnologias Utilizadas
+            </h3>
+            <div class="tech-stack-grid">
+                <div class="tech-item">Python</div>
+                <div class="tech-item">Streamlit</div>
+                <div class="tech-item">Pandas</div>
+                <div class="tech-item">SQLAlchemy</div>
+                <div class="tech-item">Supabase</div>
+                <div class="tech-item">PostgreSQL</div>
+                <div class="tech-item">Plotly</div>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>© 2026 Alexandre Cabrini | <a href="index.html" style="color: var(--primary); text-decoration: none;">Voltar ao Portfólio</a></p>
+    </footer>
+</body>
+</html>
