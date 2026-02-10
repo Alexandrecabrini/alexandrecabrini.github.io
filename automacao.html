@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Projetos de Automação - Alexandre Cabrini">
+    <title>Automação de Processos | Alexandre Cabrini</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #3b82f6;
+            --primary-dark: #2563eb;
+            --secondary: #06b6d4;
+            --dark: #0f172a;
+            --dark-light: #1e293b;
+            --dark-card: #1a1f36;
+            --gray: #94a3b8;
+            --gray-light: #cbd5e1;
+            --accent: #8b5cf6;
+            --success: #10b981;
+            --warning: #f59e0b;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--gray-light);
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* Navigation */
+        .nav {
+            margin-bottom: 2rem;
+        }
+
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.8rem 1.5rem;
+            background: var(--dark-card);
+            color: var(--gray-light);
+            text-decoration: none;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .back-btn:hover {
+            background: var(--dark-light);
+            color: white;
+            transform: translateX(-5px);
+        }
+
+        /* Header */
+        .project-header {
+            background: var(--dark-card);
+            padding: 3rem 2rem;
+            border-radius: 20px;
+            margin-bottom: 3rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        }
+
+        .project-title {
+            font-size: 3rem;
+            color: white;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .project-title i {
+            color: var(--success);
+        }
+
+        .project-subtitle {
+            font-size: 1.3rem;
+            color: var(--gray-light);
+            margin-bottom: 2rem;
+        }
+
+        /* Section */
+        .section {
+            background: var(--dark-card);
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+        }
+
+        .section-title {
+            font-size: 2rem;
+            color: white;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 3px solid var(--success);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .section-title i {
+            color: var(--success);
+        }
+
+        .section p {
+            color: var(--gray-light);
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        /* Flow Diagram */
+        .flow-container {
+            background: var(--dark-light);
+            padding: 2rem;
+            border-radius: 15px;
+            margin-top: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            overflow-x: auto;
+        }
+
+        .flow-chain {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            min-width: fit-content;
+        }
+
+        .flow-step {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 1.5rem 2rem;
+            border-radius: 15px;
+            text-align: center;
+            min-width: 150px;
+            box-shadow: 0 5px 20px rgba(59, 130, 246, 0.3);
+        }
+
+        .flow-step i {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .flow-step-title {
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .flow-arrow {
+            font-size: 2rem;
+            color: var(--success);
+        }
+
+        /* Automation Cards */
+        .automation-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .automation-card {
+            background: var(--dark-light);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .automation-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(16, 185, 129, 0.3);
+            border-color: var(--success);
+        }
+
+        .automation-icon {
+            font-size: 3rem;
+            color: var(--success);
+            margin-bottom: 1.5rem;
+        }
+
+        .automation-title {
+            font-size: 1.5rem;
+            color: white;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .automation-desc {
+            color: var(--gray-light);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .automation-features {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .automation-features li {
+            color: var(--gray-light);
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .automation-features li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--success);
+            font-weight: bold;
+        }
+
+        /* Stats */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, #10b981, #059669);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            color: white;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        /* Tech Stack */
+        .tech-stack {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .tech-item {
+            background: var(--dark-light);
+            padding: 1.2rem;
+            border-radius: 12px;
+            text-align: center;
+            font-weight: 600;
+            color: var(--gray-light);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .tech-item:hover {
+            background: var(--success);
+            color: white;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(16, 185, 129, 0.4);
+        }
+
+        /* Benefits */
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .benefit-card {
+            background: var(--dark-light);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border-left: 4px solid var(--success);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-left: 4px solid var(--success);
+        }
+
+        .benefit-title {
+            color: white;
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .benefit-title i {
+            color: var(--success);
+        }
+
+        .benefit-desc {
+            color: var(--gray-light);
+            line-height: 1.6;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: var(--gray);
+            font-size: 0.95rem;
+            margin-top: 3rem;
+        }
+
+        @media (max-width: 768px) {
+            .project-title {
+                font-size: 2rem;
+            }
+
+            .section {
+                padding: 1.5rem;
+            }
+
+            .flow-chain {
+                flex-direction: column;
+            }
+
+            .automation-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav class="nav">
+            <a href="index.html" class="back-btn">
+                <i class="fas fa-arrow-left"></i> Voltar ao Portfólio
+            </a>
+        </nav>
+
+        <header class="project-header">
+            <h1 class="project-title">
+                <i class="fas fa-robot"></i>
+                Automação de Processos
+            </h1>
+            <p class="project-subtitle">
+                Sistemas completos de captação, tratamento e distribuição automatizada de leads
+            </p>
+        </header>
+
+        <div class="section">
+            <h2 class="section-title">
+                <i class="fas fa-info-circle"></i>
+                Visão Geral
+            </h2>
+            <p>
+                Nesta seção estão projetos focados em <strong>automação de processos operacionais e de negócio</strong>, 
+                utilizando integrações via API, scripts em Python e ferramentas low-code.
+            </p>
+            <p>
+                Os projetos abaixo demonstram como dados são capturados, tratados e organizados para 
+                <strong>reduzir trabalho manual, erros operacionais e aumentar eficiência</strong>.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">
+                <i class="fas fa-user-plus"></i>
+                Automação de Captação e Qualificação de Leads (Imobiliária)
+            </h2>
+            
+            <h3 style="color: var(--success); margin-bottom: 1rem; font-size: 1.3rem;"><i class="fas fa-info-circle"></i> Contexto</h3>
+            <p>
+                A imobiliária realizava campanhas no Meta Ads direcionadas para WhatsApp, porém os leads 
+                chegavam de forma desorganizada, sem rastreio de campanha e sem distribuição automática 
+                para os corretores.
+            </p>
+
+            <h3 style="color: var(--warning); margin-top: 2rem; margin-bottom: 1rem; font-size: 1.3rem;"><i class="fas fa-exclamation-triangle"></i> Problema</h3>
+            <ul class="custom-list" style="margin-left: 0;">
+                <li>Leads sem identificação de origem</li>
+                <li>Falta de rastreio por empreendimento</li>
+                <li>Distribuição manual para corretores</li>
+                <li>Baixa eficiência no atendimento</li>
+            </ul>
+
+            <h3 style="color: var(--success); margin-top: 2rem; margin-bottom: 1rem; font-size: 1.3rem;"><i class="fas fa-check-circle"></i> Solução</h3>
+            <p>Desenvolvimento de um fluxo automatizado integrando:</p>
+            
+            <div class="flow-container" style="margin-top: 1.5rem;">
+                <div class="flow-chain">
+                    <div class="flow-step">
+                        <i class="fab fa-facebook"></i>
+                        <div class="flow-step-title">Meta Ads</div>
+                    </div>
+                    <i class="fas fa-arrow-right flow-arrow"></i>
+                    <div class="flow-step">
+                        <i class="fab fa-whatsapp"></i>
+                        <div class="flow-step-title">WhatsApp</div>
+                    </div>
+                    <i class="fas fa-arrow-right flow-arrow"></i>
+                    <div class="flow-step">
+                        <i class="fas fa-satellite-dish"></i>
+                        <div class="flow-step-title">Evolution API</div>
+                    </div>
+                    <i class="fas fa-arrow-right flow-arrow"></i>
+                    <div class="flow-step">
+                        <i class="fas fa-cogs"></i>
+                        <div class="flow-step-title">n8n</div>
+                    </div>
+                    <i class="fas fa-arrow-right flow-arrow"></i>
+                    <div class="flow-step">
+                        <i class="fas fa-database"></i>
+                        <div class="flow-step-title">CRM Facilita</div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="margin-top: 2rem;">
+                <p><strong>Processo completo:</strong></p>
+                <ul class="custom-list" style="margin-left: 0;">
+                    <li>Captura de mensagens via Evolution API</li>
+                    <li>Recebimento dos dados via Webhook no n8n</li>
+                    <li>Tratamento e padronização conforme documentação do CRM Facilita</li>
+                    <li>Criação de filas automáticas por empreendimento</li>
+                    <li>Distribuição dos leads para os corretores dentro do CRM</li>
+                </ul>
+                <p style="margin-top: 1rem;">
+                    O rastreio das campanhas era feito através de <strong>mensagens automáticas configuradas 
+                    nos anúncios</strong>, permitindo identificar origem, empreendimento e campanha.
+                </p>
+            </div>
+
+            <h3 style="color: white; margin-top: 2rem; margin-bottom: 1rem; font-size: 1.3rem;"><i class="fas fa-tools"></i> Tecnologias Utilizadas</h3>
+            <div class="tech-stack" style="grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));">
+                <div class="tech-item">n8n</div>
+                <div class="tech-item">Webhooks</div>
+                <div class="tech-item">Evolution API</div>
+                <div class="tech-item">CRM Facilita</div>
+                <div class="tech-item">Meta Ads</div>
+                <div class="tech-item">WhatsApp</div>
+            </div>
+
+            <h3 style="color: var(--success); margin-top: 2rem; margin-bottom: 1rem; font-size: 1.3rem;"><i class="fas fa-chart-bar"></i> Impacto</h3>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-title">
+                        <i class="fas fa-check-circle"></i>
+                        Organização Automática
+                    </div>
+                    <p class="benefit-desc">Leads organizados automaticamente por empreendimento</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-title">
+                        <i class="fas fa-clock"></i>
+                        Agilidade
+                    </div>
+                    <p class="benefit-desc">Atendimento mais rápido aos potenciais clientes</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-title">
+                        <i class="fas fa-tags"></i>
+                        Rastreabilidade
+                    </div>
+                    <p class="benefit-desc">Rastreio completo das campanhas e origem dos leads</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-title">
+                        <i class="fas fa-robot"></i>
+                        Automação
+                    </div>
+                    <p class="benefit-desc">Redução drástica de processos manuais</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">
+                <i class="fas fa-file-excel"></i>
+                Automação de Relatórios Operacionais em Excel com Python (Projeto RORI)
+            </h2>
+            
+            <h3 style="color: var(--success); margin-bottom: 1rem; font-size: 1.3rem;"><i class="fas fa-info-circle"></i> Contexto</h3>
+            <p>
+                Este foi meu <strong>primeiro projeto real em Python</strong>, desenvolvido para automatizar 
+                a geração de relatórios operacionais a partir de dados extraídos de arquivos .txt.
+            </p>
+            <p>
+                O processo antes da automação era totalmente manual, sujeito a erros e demandava tempo 
+                excessivo da equipe operacional.
+            </p>
+
+            <h3 style="color: var(--warning); margin-top: 2rem; margin-bottom: 1rem; font-size: 1.3rem;"><i class="fas fa-exclamation-triangle"></i> Problema</h3>
+            <ul class="custom-list" style="margin-left: 0;">
+                <li>Extração manual de dados</li>
+                <li>Preenchimento repetitivo em planilhas Excel</li>
+                <li>Alto risco de erro humano</li>
+                <li>Falta de padronização por filial</li>
+            </ul>
+
+            <h3 style="color: var(--success); margin-top: 2rem; margin-bottom: 1rem; font-size: 1.3rem;"><i class="fas fa-check-circle"></i> Solução</h3>
+            <p>Criação de um script em Python que:</p>
+            <ul class="custom-list" style="margin-left: 0;">
+                <li>Extrai dados de múltiplos arquivos .txt</li>
+                <li>Trata e organiza as informações</li>
+                <li>Preenche automaticamente uma planilha Excel existente</li>
+                <li>Padroniza dados por filial</li>
+                <li>Realiza validações de data e observações</li>
+                <li>Remove arquivos temporários após a execução</li>
+            </ul>
+
+            <h3 style="color: white; margin-top: 2rem; margin-bottom: 1rem; font-size: 1.3rem;"><i class="fas fa-tools"></i> Tecnologias Utilizadas</h3>
+            <div class="tech-stack" style="grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));">
+                <div class="tech-item">Python</div>
+                <div class="tech-item">OpenPyXL</div>
+                <div class="tech-item">File Handling</div>
+                <div class="tech-item">Automação</div>
+            </div>
+
+            <h3 style="color: var(--success); margin-top: 2rem; margin-bottom: 1rem; font-size: 1.3rem;"><i class="fas fa-chart-bar"></i> Impacto</h3>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-title">
+                        <i class="fas fa-tachometer-alt"></i>
+                        Produtividade
+                    </div>
+                    <p class="benefit-desc">Redução significativa do trabalho manual</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-title">
+                        <i class="fas fa-balance-scale"></i>
+                        Padronização
+                    </div>
+                    <p class="benefit-desc">Relatórios padronizados entre todas as filiais</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-title">
+                        <i class="fas fa-shield-alt"></i>
+                        Confiabilidade
+                    </div>
+                    <p class="benefit-desc">Menor taxa de erro nos dados</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-title">
+                        <i class="fas fa-chart-line"></i>
+                        Eficiência
+                    </div>
+                    <p class="benefit-desc">Ganho considerável de eficiência operacional</p>
+                </div>
+            </div>
+
+            <p style="margin-top: 2rem; font-style: italic; color: var(--gray);">
+                <i class="fas fa-info-circle"></i> Projeto com dados internos adaptados para fins de portfólio.
+            </p>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2026 Alexandre Cabrini | <a href="index.html" style="color: var(--success); text-decoration: none;">Voltar ao Portfólio</a></p>
+    </footer>
+</body>
+</html>
