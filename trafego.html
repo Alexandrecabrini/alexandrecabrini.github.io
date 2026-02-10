@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Projetos de Tráfego Pago - Alexandre Cabrini">
+    <title>Tráfego Pago | Alexandre Cabrini</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #3b82f6;
+            --primary-dark: #2563eb;
+            --secondary: #06b6d4;
+            --dark: #0f172a;
+            --dark-light: #1e293b;
+            --dark-card: #1a1f36;
+            --gray: #94a3b8;
+            --gray-light: #cbd5e1;
+            --accent: #8b5cf6;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --facebook: #1877f2;
+            --instagram: #e4405f;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--gray-light);
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* Navigation */
+        .nav {
+            margin-bottom: 2rem;
+        }
+
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.8rem 1.5rem;
+            background: var(--dark-card);
+            color: var(--gray-light);
+            text-decoration: none;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .back-btn:hover {
+            background: var(--dark-light);
+            color: white;
+            transform: translateX(-5px);
+        }
+
+        /* Header */
+        .project-header {
+            background: var(--dark-card);
+            padding: 3rem 2rem;
+            border-radius: 20px;
+            margin-bottom: 3rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        }
+
+        .project-title {
+            font-size: 3rem;
+            color: white;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .project-title i {
+            color: var(--facebook);
+        }
+
+        .project-subtitle {
+            font-size: 1.3rem;
+            color: var(--gray-light);
+            margin-bottom: 2rem;
+        }
+
+        /* Section */
+        .section {
+            background: var(--dark-card);
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+        }
+
+        .section-title {
+            font-size: 2rem;
+            color: white;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 3px solid var(--facebook);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .section-title i {
+            color: var(--facebook);
+        }
+
+        .section p {
+            color: var(--gray-light);
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        /* Campaign Cards */
+        .campaign-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .campaign-card {
+            background: var(--dark-light);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .campaign-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--facebook), var(--instagram));
+        }
+
+        .campaign-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(24, 119, 242, 0.3);
+            border-color: var(--facebook);
+        }
+
+        .campaign-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            color: var(--facebook);
+        }
+
+        .campaign-title {
+            font-size: 1.5rem;
+            color: white;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .campaign-desc {
+            color: var(--gray-light);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .campaign-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .stat-item {
+            background: var(--dark-card);
+            padding: 1rem;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--facebook);
+            margin-bottom: 0.3rem;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--gray);
+        }
+
+        /* Strategy Cards */
+        .strategy-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .strategy-card {
+            background: var(--dark-light);
+            padding: 2rem;
+            border-radius: 15px;
+            border-left: 4px solid var(--facebook);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-left: 4px solid var(--facebook);
+            transition: all 0.3s ease;
+        }
+
+        .strategy-card:hover {
+            transform: translateX(10px);
+            box-shadow: 0 10px 30px rgba(24, 119, 242, 0.3);
+        }
+
+        .strategy-icon {
+            font-size: 2.5rem;
+            color: var(--facebook);
+            margin-bottom: 1rem;
+        }
+
+        .strategy-title {
+            font-size: 1.3rem;
+            color: white;
+            margin-bottom: 0.8rem;
+            font-weight: 600;
+        }
+
+        .strategy-desc {
+            color: var(--gray-light);
+            line-height: 1.6;
+        }
+
+        /* Results */
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .result-card {
+            background: linear-gradient(135deg, var(--facebook), var(--instagram));
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            color: white;
+        }
+
+        .result-number {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .result-label {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        /* Tools */
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .tool-item {
+            background: var(--dark-light);
+            padding: 1.2rem;
+            border-radius: 12px;
+            text-align: center;
+            font-weight: 600;
+            color: var(--gray-light);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .tool-item:hover {
+            background: var(--facebook);
+            color: white;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(24, 119, 242, 0.4);
+        }
+
+        /* Process Timeline */
+        .timeline {
+            margin-top: 2rem;
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--facebook);
+        }
+
+        .timeline-item {
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -2.5rem;
+            top: 0.5rem;
+            width: 12px;
+            height: 12px;
+            background: var(--facebook);
+            border-radius: 50%;
+            border: 3px solid var(--dark-card);
+        }
+
+        .timeline-title {
+            color: white;
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-desc {
+            color: var(--gray-light);
+            line-height: 1.6;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: var(--gray);
+            font-size: 0.95rem;
+            margin-top: 3rem;
+        }
+
+        @media (max-width: 768px) {
+            .project-title {
+                font-size: 2rem;
+            }
+
+            .section {
+                padding: 1.5rem;
+            }
+
+            .campaign-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav class="nav">
+            <a href="index.html" class="back-btn">
+                <i class="fas fa-arrow-left"></i> Voltar ao Portfólio
+            </a>
+        </nav>
+
+        <header class="project-header">
+            <h1 class="project-title">
+                <i class="fas fa-bullhorn"></i>
+                Tráfego Pago
+            </h1>
+            <p class="project-subtitle">
+                Campanhas de geração de leads no Meta Ads para o setor imobiliário
+            </p>
+        </header>
+
+        <div class="section">
+            <h2 class="section-title">
+                <i class="fas fa-bullseye"></i>
+                Geração de Leads para Imobiliária – Meta Ads
+            </h2>
+            
+            <h3 style="color: var(--facebook); margin-bottom: 1rem; font-size: 1.3rem;"><i class="fas fa-bullseye"></i> Objetivo</h3>
+            <p>
+                Captação de leads qualificados para empreendimentos imobiliários, com foco em 
+                <strong>WhatsApp</strong> e integração total com automações.
+            </p>
+
+            <h3 style="color: white; margin-top: 2rem; margin-bottom: 1rem; font-size: 1.3rem;"><i class="fas fa-chess-knight"></i> Estratégia</h3>
+            <ul class="custom-list" style="margin-left: 0;">
+                <li>Campanhas separadas por construtora e empreendimento</li>
+                <li>Objetivo de conversão para WhatsApp</li>
+                <li><strong>Uso de:</strong>
+                    <ul style="list-style: none; padding-left: 2rem; margin-top: 0.5rem;">
+                        <li>→ Carrosséis</li>
+                        <li>→ Imagens estáticas</li>
+                        <li>→ Vídeos</li>
+                    </ul>
+                </li>
+                <li>Segmentação regional e por perfil de interesse</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">
+                <i class="fas fa-project-diagram"></i>
+                Integração com Automação
+            </h2>
+            <p>
+                Cada campanha possuía <strong>frases específicas no WhatsApp</strong> que funcionavam 
+                como gatilhos para rastreamento automático.
+            </p>
+            
+            <div class="strategy-grid" style="margin-top: 2rem;">
+                <div class="strategy-card">
+                    <div class="strategy-icon">
+                        <i class="fas fa-comment-dots"></i>
+                    </div>
+                    <h3 class="strategy-title">Mensagens como Gatilhos</h3>
+                    <p class="strategy-desc">
+                        Frases específicas configuradas nos anúncios para identificação automática
+                    </p>
+                </div>
+
+                <div class="strategy-card">
+                    <div class="strategy-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3 class="strategy-title">Processamento no n8n</h3>
+                    <p class="strategy-desc">
+                        Automações identificavam campanha, empreendimento e origem do lead
+                    </p>
+                </div>
+
+                <div class="strategy-card">
+                    <div class="strategy-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h3 class="strategy-title">Integração com CRM</h3>
+                    <p class="strategy-desc">
+                        Leads direcionados automaticamente para as filas corretas no CRM
+                    </p>
+                </div>
+            </div>
+
+            <div style="margin-top: 2rem; background: var(--dark-light); padding: 2rem; border-radius: 15px; border: 1px solid rgba(255, 255, 255, 0.1);">
+                <h3 style="color: white; margin-bottom: 1rem; font-size: 1.3rem;">
+                    <i class="fas fa-tags" style="color: var(--facebook);"></i> As automações no n8n identificavam:
+                </h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1rem;">
+                    <div style="background: var(--dark-card); padding: 1.5rem; border-radius: 10px; text-align: center;">
+                        <i class="fas fa-bullhorn" style="font-size: 2rem; color: var(--facebook); margin-bottom: 0.5rem;"></i>
+                        <p style="color: white; font-weight: 600;">Campanha</p>
+                    </div>
+                    <div style="background: var(--dark-card); padding: 1.5rem; border-radius: 10px; text-align: center;">
+                        <i class="fas fa-building" style="font-size: 2rem; color: var(--facebook); margin-bottom: 0.5rem;"></i>
+                        <p style="color: white; font-weight: 600;">Empreendimento</p>
+                    </div>
+                    <div style="background: var(--dark-card); padding: 1.5rem; border-radius: 10px; text-align: center;">
+                        <i class="fas fa-map-marker-alt" style="font-size: 2rem; color: var(--facebook); margin-bottom: 0.5rem;"></i>
+                        <p style="color: white; font-weight: 600;">Origem do Lead</p>
+                    </div>
+                </div>
+                <p style="margin-top: 1.5rem; text-align: center; color: var(--gray-light);">
+                    Integração direta com o CRM para distribuição correta
+                </p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">
+                <i class="fas fa-chart-line"></i>
+                Benefícios
+            </h2>
+            <div class="benefits-grid" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));">
+                <div class="benefit-card">
+                    <div class="benefit-title">
+                        <i class="fas fa-search-location"></i>
+                        Controle Total da Origem
+                    </div>
+                    <p class="benefit-desc">
+                        Rastreamento completo de cada lead desde a campanha até o CRM
+                    </p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-title">
+                        <i class="fas fa-chart-bar"></i>
+                        Otimização Baseada em Dados
+                    </div>
+                    <p class="benefit-desc">
+                        Decisões estratégicas fundamentadas em métricas reais de performance
+                    </p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-title">
+                        <i class="fas fa-users"></i>
+                        Melhor Aproveitamento
+                    </div>
+                    <p class="benefit-desc">
+                        Leads direcionados corretamente aumentam taxa de conversão
+                    </p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-title">
+                        <i class="fas fa-dollar-sign"></i>
+                        Redução de Custos
+                    </div>
+                    <p class="benefit-desc">
+                        Diminuição do custo por lead através de otimizações contínuas
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">
+                <i class="fas fa-tools"></i>
+                Ferramentas e Formatos Utilizados
+            </h2>
+            
+            <h3 style="color: white; margin-bottom: 1rem; font-size: 1.3rem;">Plataformas</h3>
+            <div class="tools-grid">
+                <div class="tool-item">Meta Ads Manager</div>
+                <div class="tool-item">Facebook Ads</div>
+                <div class="tool-item">Instagram Ads</div>
+                <div class="tool-item">WhatsApp Business</div>
+                <div class="tool-item">n8n</div>
+                <div class="tool-item">Evolution API</div>
+            </div>
+
+            <h3 style="color: white; margin-top: 2rem; margin-bottom: 1rem; font-size: 1.3rem;">Formatos de Anúncio</h3>
+            <div class="campaign-grid">
+                <div class="campaign-card">
+                    <div class="campaign-icon"><i class="fas fa-images"></i></div>
+                    <h3 class="campaign-title">Carrosséis</h3>
+                    <p class="campaign-desc">
+                        Múltiplas imagens em sequência para destacar diferentes ambientes 
+                        e diferenciais do empreendimento
+                    </p>
+                </div>
+
+                <div class="campaign-card">
+                    <div class="campaign-icon"><i class="fas fa-image"></i></div>
+                    <h3 class="campaign-title">Imagens Estáticas</h3>
+                    <p class="campaign-desc">
+                        Imagens de alta qualidade focando em ambientes específicos e 
+                        apelo visual direto
+                    </p>
+                </div>
+
+                <div class="campaign-card">
+                    <div class="campaign-icon"><i class="fas fa-video"></i></div>
+                    <h3 class="campaign-title">Vídeos</h3>
+                    <p class="campaign-desc">
+                        Tours virtuais e vídeos promocionais para maior engajamento 
+                        e visualização imersiva
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2026 Alexandre Cabrini | <a href="index.html" style="color: var(--facebook); text-decoration: none;">Voltar ao Portfólio</a></p>
+    </footer>
+</body>
+</html>
