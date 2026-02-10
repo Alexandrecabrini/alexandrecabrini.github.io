@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Alexandre Cabrini - Analista de Dados Júnior especializado em dashboards, automação e tráfego pago">
+    <title>Alexandre Cabrini | Analista de Dados</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #3b82f6;
+            --primary-dark: #2563eb;
+            --secondary: #06b6d4;
+            --dark: #0f172a;
+            --dark-light: #1e293b;
+            --dark-card: #1a1f36;
+            --gray: #94a3b8;
+            --gray-light: #cbd5e1;
+            --light: #f1f5f9;
+            --white: #ffffff;
+            --accent: #8b5cf6;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--gray-light);
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* Header */
+        header {
+            background: var(--dark-card);
+            backdrop-filter: blur(10px);
+            padding: 2rem 0;
+            margin-bottom: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            animation: slideDown 0.6s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            padding: 0 2rem;
+        }
+
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: white;
+            font-weight: bold;
+            box-shadow: 0 10px 30px rgba(37, 99, 235, 0.3);
+        }
+
+        .header-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: var(--white);
+            margin-bottom: 0.5rem;
+        }
+
+        .subtitle {
+            font-size: 1.3rem;
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .tagline {
+            font-size: 1.1rem;
+            color: var(--gray-light);
+            line-height: 1.6;
+        }
+
+        /* Areas de atuação */
+        .areas {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-top: 1.5rem;
+        }
+
+        .area-tag {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 0.5rem 1.2rem;
+            border-radius: 25px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .area-tag:hover {
+            transform: translateY(-3px);
+        }
+
+        /* Sections */
+        .section {
+            background: var(--dark-card);
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            animation: fadeInUp 0.6s ease-out;
+            animation-fill-mode: both;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section:nth-child(2) { animation-delay: 0.1s; }
+        .section:nth-child(3) { animation-delay: 0.2s; }
+        .section:nth-child(4) { animation-delay: 0.3s; }
+        .section:nth-child(5) { animation-delay: 0.4s; }
+
+        .section-title {
+            font-size: 2rem;
+            color: var(--white);
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 3px solid var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .section-title i {
+            color: var(--primary);
+        }
+
+        /* Projeto em Destaque */
+        .featured-project {
+            background: linear-gradient(135deg, #1e3a8a 0%, #5b21b6 100%);
+            color: white;
+            padding: 2.5rem;
+            border-radius: 15px;
+            margin-top: 1.5rem;
+            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .featured-project:hover {
+            transform: translateY(-5px);
+        }
+
+        .featured-project h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .featured-project p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .tech-list {
+            display: flex;
+            gap: 0.8rem;
+            flex-wrap: wrap;
+            margin: 1.5rem 0;
+        }
+
+        .tech-badge {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        /* Project Cards */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .project-card {
+            background: var(--dark-light);
+            padding: 2rem;
+            border-radius: 15px;
+            border-left: 4px solid var(--primary);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-left: 4px solid var(--primary);
+            transition: all 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateX(10px);
+            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.3);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .project-card h3 {
+            color: var(--white);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .project-card p {
+            color: var(--gray-light);
+            line-height: 1.7;
+        }
+
+        /* Tech Stack */
+        .tech-stack {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .tech-item {
+            background: var(--dark-light);
+            padding: 1.2rem;
+            border-radius: 12px;
+            text-align: center;
+            font-weight: 600;
+            color: var(--gray-light);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .tech-item:hover {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(59, 130, 246, 0.4);
+        }
+
+        /* Contact */
+        .contact-links {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .contact-btn {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 1rem 2rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(37, 99, 235, 0.3);
+        }
+
+        .contact-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(37, 99, 235, 0.4);
+        }
+
+        .contact-btn i {
+            font-size: 1.3rem;
+        }
+
+        /* CTA Button */
+        .cta-btn {
+            display: inline-block;
+            margin-top: 1.5rem;
+            padding: 1rem 2.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-3px);
+            background: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 30px rgba(59, 130, 246, 0.4);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: white;
+            font-size: 0.95rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            .subtitle {
+                font-size: 1.1rem;
+            }
+
+            .section {
+                padding: 1.5rem;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+
+            .header-content {
+                justify-content: center;
+                text-align: center;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-content">
+                <div class="profile-img">AC</div>
+                <div class="header-text">
+                    <h1>Olá, eu sou Alexandre Cabrini</h1>
+                    <div class="subtitle">Analista de Dados Júnior</div>
+                    <p class="tagline">
+                        Transformo dados em informação útil para o negócio, desenvolvendo 
+                        dashboards, automações e integrações que reduzem trabalho manual 
+                        e apoiam decisões estratégicas.
+                    </p>
+                    <div class="areas">
+                        <span class="area-tag"><i class="fas fa-chart-line"></i> Análise de Dados</span>
+                        <span class="area-tag"><i class="fas fa-robot"></i> Automação</span>
+                        <span class="area-tag"><i class="fas fa-bullhorn"></i> Tráfego Pago</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div class="section">
+            <h2 class="section-title"><i class="fas fa-star"></i> Projeto em Destaque</h2>
+            <div class="featured-project">
+                <h3><i class="fas fa-truck"></i> Dashboard Logístico – Transportadora (SSW)</h3>
+                <p>
+                    Dashboard web completo desenvolvido em <strong>Python e Streamlit</strong>, 
+                    integrado com banco de dados <strong>Supabase (PostgreSQL)</strong> para 
+                    análise em tempo real de dados logísticos e financeiros.
+                </p>
+                <p>
+                    O projeto centraliza indicadores operacionais críticos, possui arquitetura 
+                    escalável preparada para controle de acesso por usuários e expansão de 
+                    funcionalidades futuras.
+                </p>
+                <div class="tech-list">
+                    <span class="tech-badge">Python</span>
+                    <span class="tech-badge">Streamlit</span>
+                    <span class="tech-badge">PostgreSQL</span>
+                    <span class="tech-badge">Supabase</span>
+                    <span class="tech-badge">Plotly</span>
+                    <span class="tech-badge">Pandas</span>
+                </div>
+                <a href="dashboard.html" class="cta-btn"><i class="fas fa-external-link-alt"></i> Ver Projeto Completo</a>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title"><i class="fas fa-folder-open"></i> Outros Projetos</h2>
+            <div class="projects-grid">
+                <div class="project-card" onclick="window.location.href='automacao.html'" style="cursor: pointer;">
+                    <h3><i class="fas fa-robot"></i> Automação de Processos</h3>
+                    <p>
+                        Sistema completo de captação, tratamento e distribuição de leads 
+                        integrando <strong>Meta Ads → WhatsApp → Evolution API → n8n → CRM Facilita</strong>. 
+                        Inclui rastreamento de campanhas, organização de dados e distribuição 
+                        automática para filas de atendimento.
+                    </p>
+                </div>
+
+                <div class="project-card" onclick="window.location.href='trafego.html'" style="cursor: pointer;">
+                    <h3><i class="fas fa-chart-line"></i> Tráfego Pago</h3>
+                    <p>
+                        Campanhas de geração de leads no <strong>Meta Ads</strong> para imobiliárias, 
+                        estruturadas por construtora e empreendimento, com integração a automações 
+                        para rastreamento e qualificação automática dos leads.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title"><i class="fas fa-tools"></i> Tecnologias e Ferramentas</h2>
+            <div class="tech-stack">
+                <div class="tech-item">Power BI</div>
+                <div class="tech-item">Looker Studio</div>
+                <div class="tech-item">Python</div>
+                <div class="tech-item">Pandas</div>
+                <div class="tech-item">Streamlit</div>
+                <div class="tech-item">Plotly</div>
+                <div class="tech-item">PostgreSQL</div>
+                <div class="tech-item">Supabase</div>
+                <div class="tech-item">Excel</div>
+                <div class="tech-item">Google Sheets</div>
+                <div class="tech-item">n8n</div>
+                <div class="tech-item">APIs</div>
+                <div class="tech-item">Meta Ads</div>
+                <div class="tech-item">CRM Facilita</div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title"><i class="fas fa-envelope"></i> Contato</h2>
+            <p style="color: var(--gray); font-size: 1.1rem; margin-bottom: 1.5rem;">
+                Estou sempre aberto a novas oportunidades e conversas sobre dados, automação e tecnologia.
+            </p>
+            <div class="contact-links">
+                <a href="mailto:alexandre.cabrini@gmail.com" class="contact-btn">
+                    <i class="fas fa-envelope"></i> Email
+                </a>
+                <a href="https://www.linkedin.com/in/alexandrecabrini" target="_blank" class="contact-btn">
+                    <i class="fab fa-linkedin"></i> LinkedIn
+                </a>
+                <a href="https://github.com/Alexandrecabrini" target="_blank" class="contact-btn">
+                    <i class="fab fa-github"></i> GitHub
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2026 Alexandre Cabrini | Desenvolvido para demonstrar habilidades em análise de dados</p>
+    </footer>
+</body>
+</html>
